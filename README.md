@@ -1,4 +1,5 @@
-== BIDABL
+BIDABL
+===============
 
 Bidabl is a web application designed to connect independent contractors with individuals who have bidabl projects / jobs in the same area. Version 1.0 will restrict projects to those in the handiwork categories, with the plan to expand the types of bidabl jobs in the version 2.0.
 
