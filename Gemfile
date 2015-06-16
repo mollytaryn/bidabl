@@ -6,6 +6,7 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+# gem 'haml-rails'
 
 gem 'jquery-rails'
 gem 'turbolinks'
@@ -27,13 +28,13 @@ group :development, :test do
 
   gem 'fabrication'
   gem 'faker'
-  gem 'launchy'
   gem 'rspec-rails'
-  gem 'shoulda-matchers'
 end
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
