@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+
+  ul {
+    height: 60px;
+    background-color: #2C3240;
+
+    li {
+      height: 60px;
+      padding: 18px 14px;
+      display: inline;
+      font-size: 1em;
+      font-weight: 600;
+    }
+
+    #logo {
+      font-family: Raleway;
+      font-weight: 900;
+      font-size: 40px;
+      color: white;
+
+    }
+
+    .rightNav {
+      text-align: center;
+      background-color: #565A66;
+      float: right;
+      border-left: 5px solid white;
+      width: 100px;
+
+      a {
+        color: white;
+      }
+    }
+  }
+}

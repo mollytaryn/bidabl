@@ -2,28 +2,30 @@
 <html>
   <head>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-    <title>Median</title>
+    <title>Bidabl</title>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <header>
-      <nav>Bidabl
+      <nav>
         <ul>
+          <li id="logo">bidabl</li>
           <% if !logged_in? %>
             <% unless controller_name == "users" %>
-              <li>
+              <li class="rightNav">
                 <%= link_to "Sign Up", new_user_path %>
               </li>
             <% end %>
             <% unless controller_name == "user_sessions" %>
-              <li>
+              <li class="rightNav">
                 <%= link_to "Sign In", new_user_session_path %>
               </li>
             <% end %>
           <% else %>
-            <li>
+            <li class="rightNav">
               <%= link_to "Sign Out", user_session_path, method: :delete %>
             </li>
           <% end %>
