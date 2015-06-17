@@ -1,0 +1,26 @@
+.container {
+  @include outer-container(96%);
+
+  .homeLeft {
+    @include span-columns(6 of 12);
+    text-align: center;
+    height: 280px;
+    padding: 100px 0;
+    background-color: white;
+  }
+  .homeRight {
+    @include span-columns(6 of 12);
+    text-align: center;
+    padding: 100px 0;
+    height: 280px;
+    background-color: white;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  button {
+    margin: 10px;
+  }
+}

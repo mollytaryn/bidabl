@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #dddee0;
 
   ul {
     height: 60px;
@@ -25,12 +26,16 @@ body {
       text-align: center;
       background-color: #565A66;
       float: right;
-      border-left: 5px solid white;
+      border-left: 5px solid #dddee0;
       width: 100px;
 
       a {
         color: white;
       }
+    }
+
+    .rightNav:hover {
+      background-color: #4d515b;
     }
   }
 }
