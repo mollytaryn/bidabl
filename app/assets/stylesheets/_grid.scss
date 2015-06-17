@@ -6,14 +6,19 @@
     text-align: center;
     height: 280px;
     padding: 100px 0;
+    margin-bottom: 20px;
     background-color: white;
+    border-top: 2px solid #dddee0;
+    border-right: 2px solid #dddee0;
   }
   .homeRight {
     @include span-columns(6 of 12);
     text-align: center;
     padding: 100px 0;
     height: 280px;
+    margin-bottom: 20px;
     background-color: white;
+    border-top: 2px solid #dddee0;
   }
 
   h2 {
@@ -23,4 +28,12 @@
   button {
     margin: 10px;
   }
+
+  form {
+    max-width: 400px;
+
+    input {
+    }
+  }
+
 }
