@@ -18,14 +18,14 @@
               <li class="rightNav">
                 <div class="modal">
                   <label for="modal-1">
-                    <div class="modal-trigger">Sign Up</div>
+                    <div id="sign-up-form" class="modal-trigger">Sign Up</div>
                   </label>
                   <input class="modal-state" id="modal-1" type="checkbox" />
                   <div class="modal-fade-screen">
                     <div class="modal-inner">
                       <div class="modal-close" for="modal-1"></div>
                       <h1>Sign Up</h1>
-                      <div id="signUp"><%= render partial:'users/sign_up_form', locals: { user: User.new } %></div>
+                      <div><%= render partial:'users/sign_up_form', locals: { user: User.new } %></div>
                     </div>
                   </div>
                 </div>
@@ -35,14 +35,14 @@
               <li class="rightNav">
                 <div class="modal">
                   <label for="modal-2">
-                    <div class="modal-trigger">Sign In</div>
+                    <div id="sign-in-form" class="modal-trigger">Sign In</div>
                   </label>
                   <input class="modal-state" id="modal-2" type="checkbox" />
                   <div class="modal-fade-screen">
                     <div class="modal-inner">
                       <div class="modal-close" for="modal-2"></div>
-                      <h1>Sign Up</h1>
-                      <div id="signIn"><%= render partial:'user_sessions/sign_in_form', locals: { user: User.new } %></div>
+                      <h1>Sign In</h1>
+                      <div><%= render partial:'user_sessions/sign_in_form', locals: { user: User.new } %></div>
                     </div>
                   </div>
                 </div>

@@ -8,11 +8,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       auto_login(@user)
-      redirect_to root_path, notice: "Welcome, #{@user.username}"
+      redirect_to user_path(@user), notice: "Welcome, #{@user.username}"
     else
       flash.alert = "Please fix the errors below to continue."
       render :new
     end
+  end
+
+  def show
+    @user = User.find params[:id]
   end
 
   protected
