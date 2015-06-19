@@ -1,0 +1,13 @@
+<h1>Edit Profile</h1>
+<%= button_to "Cancel"%>
+
+<%= simple_form_for @user, url: user_path, method: :put do |f| %>
+  <%= f.input :name %>
+  <%= f.input :username %>
+  <%= f.input :description %>
+  <%= f.input :email %>
+  <%= f.input :website, :as => :url, label: 'Website' %>
+  <%= f.input :linkedin, :as => :url, label: 'Linked In Profile' %>
+  <%= f.input :facebook_page, :as => :url, label: 'Facebook Page' %>
+  <%= f.button :submit, "Done" %>
+<% end %>

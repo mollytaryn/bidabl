@@ -2,4 +2,5 @@
 <h1><%= @user.username %></h1>
 <h3><%= @user.name %></h3>
 <h6><%= @user.description %></h6>
-<h5>User Since: <%= @user.created_at.month %>.<%= @user.created_at.day %>.<%= @user.created_at.year %><h5>3
+<h6>User Since: <%= @user.created_at.month %>.<%= @user.created_at.day %>.<%= @user.created_at.year %><h6>
+<%= link_to "Edit Your Profile", edit_user_path(@user) %>
