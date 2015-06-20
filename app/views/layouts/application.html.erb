@@ -52,6 +52,9 @@
             <li class="rightNav">
               <%= link_to "Sign Out", user_session_path, method: :delete %>
             </li>
+            <li class="rightNav">
+              <%= link_to "My Profile", user_path(current_user) %>
+            </li>
           <% end %>
         </ul>
       </nav>
