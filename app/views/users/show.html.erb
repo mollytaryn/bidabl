@@ -1,14 +1,30 @@
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"></img>
-<h1><%= @user.username %></h1>
-<h3><%= @user.name %></h3>
-<h6>User Since: <%= @user.created_at.month %>.<%= @user.created_at.day %>.<%= @user.created_at.year %><h6>
-<h3><%= @user.email %></h3>
-<h3>Website: <%= @user.website %></h3>
-<% unless @user.linkedin.blank? %>
-  <%= link_to image_tag("linkedin_icon.png"), "#{@user.linkedin}" %>
-<% end %>
-<% unless @user.facebook_page.blank? %>
-  <%= link_to image_tag("facebook_icon.png"), "#{@user.facebook_page}" %>
-<% end %>
-<h6><%= @user.description %></h6>
-<%= link_to "Edit Your Profile", edit_user_path(@user) %>
+<div class="profileContainer">
+  <div class="profileLeft">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"></img>
+  </div>
+  <div class="profileRight">
+    <h1><%= @user.username %></h1>
+    <h3><%= @user.name %></h3>
+    <h3>User since <%= @user.created_at.month %>.<%= @user.created_at.day %>.<%= @user.created_at.year %></h3>
+    <h3><%= @user.email %></h3>
+    <h3>Website: <%= @user.website %></h3>
+    <ul class="social-ul">
+      <li class="social-li">
+        <% unless @user.linkedin.blank? %>
+          <%= link_to image_tag("linkedin_icon.png"), "#{@user.linkedin}", :class => 'icon' %>
+        <% end %>
+      </li>
+      <li class="social-li">
+        <% unless @user.facebook_page.blank? %>
+          <%= link_to image_tag("facebook_icon.png"), "#{@user.facebook_page}", :class => 'icon' %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class="profileFarRight">
+    <%= link_to "Edit Your Profile", edit_user_path(@user) %>
+  </div>
+  <div class="profileFullWidth">
+    <h4><%= @user.description %></h4>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+.profileContainer {
+  @include outer-container;
+
+  .profileLeft {
+    @include span-columns(4);
+  }
+  .profileRight {
+    @include span-columns(5);
+  }
+  .profileFarRight {
+    @include span-columns(2);
+    text-align: right;
+  }
+
+  .profileFullWidth {
+    @include span-columns(12 of 12);
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 2px solid #dddee0;
+  }
+  h1 {
+    font-size: 26px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 15px;
+    color: #888b93;
+  }
+
+  h4 {
+    font-weight: 400;
+  }
+
+  img {
+    border-radius: 8px;
+  }
+
+  .social-ul {
+
+    .social-li {
+      display: inline;
+    }
+  }
+}

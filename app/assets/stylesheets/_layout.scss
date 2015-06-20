@@ -1,11 +1,12 @@
 body {
   margin: 0;
 
-  ul {
+  .nav-ul {
     height: 60px;
     background-color: #2C3240;
+    margin-bottom: 30px;
 
-    li {
+    .nav-li {
       height: 60px;
       padding: 18px 14px;
       display: inline;
@@ -35,6 +36,20 @@ body {
     .rightNav:hover {
       background-color: #4d515b;
     }
+  }
+  .alert {
+    margin: 20px;
+    background-color: #ff7f7f;
+    border-radius: 8px;
+    color: white;
+  }
+  .notice {
+    margin: 0px 30px 30px 30px;
+    padding: 0px 10px 0px 10px;
+    font-weight: 800;
+    background-color: #42ce8b;
+    border-radius: 4px;
+    color: white;
   }
 }
 
