@@ -21,17 +21,35 @@
     padding-top: 30px;
     border-top: 2px solid #dddee0;
   }
+
+  .profileHeaderFullWidth {
+    @include span-columns(12 of 12);
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+
   h1 {
     font-size: 26px;
     text-transform: uppercase;
   }
 
+  h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: -30px;
+  }
+
   h3 {
+    font-size: 18px;
+    margin-bottom: -10px;
+  }
+
+  h4 {
     font-size: 15px;
     color: #888b93;
   }
 
-  h4 {
+  h5 {
     font-weight: 400;
   }
 
