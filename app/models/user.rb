@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  has_many :projects
+
   validates :email, :username, presence: true
   validates :name, length: { minimum: 2, allow_blank: true }
   validates :username, length: {minimum: 2}
