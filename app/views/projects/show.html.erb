@@ -1,8 +1,20 @@
-<h1><%= @project.title %></h1>
-<h3>Posted by: <%= link_to @project.user.username, user_path(@project.user_id) %> </h3>
-<h3><%= @project.description %></h3>
-<h3>$ <%= @project.pay %> <%= @project.pay_type %></h3>
+<div class="profileContainer">
+  <div class="profileLeft">
+    <h1><%= @project.title %></h1>
+    <h3>$ <%= @project.pay %> <%= @project.pay_type %></h3>
+    <h4>Posted by <%= link_to @project.user.username, user_path(@project.user_id) %> </h4>
+    <h4>Posted on <%= @project.created_at.month %>.<%= @project.created_at.day %>.<%= @project.created_at.year %></h4>
+  </div>
+  <div class="profileRight">
+    <h3><%= link_to "Bidabl Projects", root_path %> >> <%= @project.category.name %></h3>
+    <br>
+    <h5><%= @project.description %></h5>
+  </div>
+  <div class="profileFarRight">
+    <%= link_to "Edit" %>
+  </div>
+</div>
 
-<h3><%= @project.category.name %></h3>
+
 
 
