@@ -1,0 +1,17 @@
+.categoriesContainer {
+  @include outer-container;
+
+  .block {
+    @include span-columns(3);
+    @include omega(4n);
+    height: 60px;
+  }
+
+  h1 {
+    font-size: 26px;
+    text-align: center;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #dddee0;
+  }
+}

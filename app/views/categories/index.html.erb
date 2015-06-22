@@ -1,7 +1,13 @@
-<ul><% @categories.each do |category| %>
-  <div class="profileFullWidth">
-    <li>
-      <h3><%= link_to category.name %></h3>
+<div class="categoriesContainer">
+  <h1>Search for Projects by Category</h1>
+  <ul><% @categories.each do |category| %>
+    <li class="block">
+      <%= link_to category.name, category_path(category) %>
+        <!-- <ul><% category.projects.each do |project| %>
+          <li class="block">
+            <h5><%= link_to project.title %></h5>
+          </li>
+      <% end%></ul> -->
     </li>
-  </div>
-<% end %></ul>
+  <% end %></ul>
+</div>

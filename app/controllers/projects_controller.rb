@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user_id = current_user.id
     if @project.save
-      redirect_to project_path(@project.id), notice: "Your project has been succesfully published under the #{project.category} category."
+      redirect_to project_path(@project), notice: "Your project has been succesfully published under the #{@project.category.name} category."
     else
       flash.alert = "Your project could not be saved. Please make sure you have filled in all the required fields."
       render :new
