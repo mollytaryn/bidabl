@@ -1,10 +1,12 @@
 .categoriesContainer {
   @include outer-container;
+  text-align: center;
 
   .block {
     @include span-columns(3);
     @include omega(4n);
     height: 60px;
+    text-align: left;
   }
 
   h1 {
@@ -14,4 +16,14 @@
     margin-bottom: 30px;
     border-bottom: 2px solid #dddee0;
   }
+
+  h3 {
+    text-align: center;
+  }
+
+  button {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
 }

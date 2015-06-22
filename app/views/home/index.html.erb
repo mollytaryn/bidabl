@@ -1,25 +1,10 @@
-<div class="container">
-  <div class="homeLeft">
-    <h2>Need help with a project?</h2>
-  </div>
-  <div class="homeRight">
-    <h3>Post your project here and start getting bids today!</h3>
-    <button>Create New Project</button>
-  </div>
+<div class="categoriesContainer">
+  <h1>Need help with a project?</h2>
+  <h3>Post your project here and start getting bids today!</h3>
+  <button>Create New Project</button>
 </div>
 
 <div class="container">
-  <div class="homeLeft">
-    <h2>Searching for a project?</h2>
-  </div>
-  <div class="homeRight">
-    <h3>Enter your zipcode or city and state:</h3>
-<!--     <form>
-      <input type="search" placeholder="Enter Search" />
-        <button type="submit">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/search-icon.png" alt="Search Icon">
-        </button>
-    </form> -->
-  </div>
+  <%= render partial: "states/index", locals: { states: State.all } %>
 </div>
 

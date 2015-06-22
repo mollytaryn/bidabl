@@ -3,11 +3,6 @@
   <ul><% @categories.each do |category| %>
     <li class="block">
       <%= link_to category.name, category_path(category) %>
-        <!-- <ul><% category.projects.each do |project| %>
-          <li class="block">
-            <h5><%= link_to project.title %></h5>
-          </li>
-      <% end%></ul> -->
     </li>
   <% end %></ul>
 </div>
