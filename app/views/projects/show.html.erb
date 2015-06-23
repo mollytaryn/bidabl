@@ -1,7 +1,11 @@
 <div class="profileContainer">
   <div class="profileLeft">
     <h1><%= @project.title %></h1>
-    <h3>$ <%= @project.pay %> <%= @project.pay_type %></h3>
+    <% if @project.pay.blank? %>
+      <h3>All bids welcome</h3>
+    <% else %>
+      <h3>$ <%= @project.pay %> <%= @project.pay_type %></h3>
+    <% end %>
     <h4>Posted by <%= link_to @project.user.username, user_path(@project.user_id) %> </h4>
     <h4>Posted on <%= @project.created_at.month %>.<%= @project.created_at.day %>.<%= @project.created_at.year %></h4>
   </div>
