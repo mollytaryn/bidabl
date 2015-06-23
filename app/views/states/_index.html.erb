@@ -3,6 +3,12 @@
   <ul><% states.each do |state| %>
     <li class="block">
       <%= state.name %>
+      <!-- <%= link_to "Delete", state_path(state.id), :method => :delete %> -->
+      <ul><% state.cities.each do |city| %>
+        <li>
+          <h6><%= link_to city.name, city_path(city) %></h6>
+        </li>
+      <% end %></ul>
     </li>
   <% end %></ul>
 </div>

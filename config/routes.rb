@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :categories, only: [:index, :show]
-  resources :states, only: [:index]
+  resources :states, only: [:index, :show, :destroy]
+  resources :cities, only: [:index, :show]
   resources :projects, only: [:new, :create, :show, :destroy]
   resource :user_session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :show, :edit, :update, :create]

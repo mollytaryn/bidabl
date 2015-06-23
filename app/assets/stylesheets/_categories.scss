@@ -5,7 +5,7 @@
   .block {
     @include span-columns(3);
     @include omega(4n);
-    height: 60px;
+    height: 120px;
     text-align: left;
   }
 
@@ -19,6 +19,11 @@
 
   h3 {
     text-align: center;
+  }
+
+  h6 {
+    font-size: 14px;
+    margin: 0px 0px 2px 0px;
   }
 
   button {
