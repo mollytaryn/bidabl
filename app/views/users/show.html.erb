@@ -4,10 +4,9 @@
   </div>
   <div class="profileRight">
     <h1><%= @user.username %></h1>
-    <h4><%= @user.name %></h4>
-    <h4>User since <%= @user.created_at.month %>.<%= @user.created_at.day %>.<%= @user.created_at.year %></h4>
+    <h4><%= @user.name %> | Joined Bidabl <%= @user.created_at.month %>.<%= @user.created_at.day %>.<%= @user.created_at.year %></h4>
     <h4><%= @user.email %></h4>
-    <h4>Website: <%= @user.website %></h4>
+    <h4><%= @user.website %></h4>
     <ul class="social-ul">
       <li class="social-li">
         <% unless @user.linkedin.blank? %>
@@ -19,33 +18,46 @@
           <%= link_to image_tag("facebook_icon.png"), "#{@user.facebook_page}", :class => 'icon' %>
         <% end %>
       </li>
+      <li class="social-li">
+        <% unless @user.pinterest.blank? %>
+          <%= link_to image_tag("pinterest_icon.png"), "#{@user.pinterest}", :class => 'icon' %>
+        <% end %>
+      </li>
     </ul>
+    <% if @user == current_user %>
       <div class="createLink">
         <%= link_to "Create a bidabl project", new_project_path %>
       </div>
+    <% end %>
   </div>
   <div class="profileFarRight">
-    <%= link_to "Edit Your Profile", edit_user_path(@user) %>
+    <% if @user == current_user %>
+      <%= link_to "Edit Your Profile", edit_user_path(@user) %>
+    <% end %>
   </div>
-  <div class="profileHeaderFullWidth">
-    <h2>About</h2>
-  </div>
-  <div class="profileFullWidth">
-    <h5><%= @user.description %></h5>
-  </div>
-  <div class="profileHeaderFullWidth">
-    <h2>Bidabl Projects</h2>
-  </div>
-  <ul><% @user.projects.each do |p| %>
-    <div class="profileFullWidth">
-      <li>
-        <h3><%= link_to p.title, project_path(p.id) %></h3>
-        <h4>Posted on <%= p.created_at.month %>.<%= p.created_at.day %>.<%= p.created_at.year %></h4>
-        <br>
-        <%= p.description %>
-        <br>
-        <%= link_to "Delete", project_path(p.id), :method => :delete %>
-      </li>
+  <% unless @user.description.blank? %>
+    <div class="profileHeaderFullWidth">
+      <h2>About</h2>
     </div>
-  <% end %></ul>
+    <div class="profileFullWidth">
+      <h5><%= @user.description %></h5>
+    </div>
+  <% end %>
+  <% if @user.projects.length >= 1 %>
+    <div class="profileHeaderFullWidth">
+      <h2>Bidabl Projects</h2>
+    </div>
+    <ul><% @user.projects.each do |p| %>
+      <div class="profileFullWidth">
+        <li>
+          <h3><%= link_to p.title, project_path(p.id) %></h3>
+          <h4>Posted on <%= p.created_at.month %>.<%= p.created_at.day %>.<%= p.created_at.year %></h4>
+          <br>
+          <%= p.description %>
+          <br>
+          <%= link_to "Delete", project_path(p.id), :method => :delete %>
+        </li>
+      </div>
+    <% end %></ul>
+  <% end %>
 </div>
