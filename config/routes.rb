@@ -5,10 +5,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  resources :projects, only: [:new, :create, :show, :destroy] do
+    resources :comments, only: [:create]
+  end
+
   resources :categories, only: [:index, :show, :destroy]
   resources :states, only: [:index, :destroy]
   resources :cities, only: [:index, :show]
-  resources :projects, only: [:new, :create, :show, :destroy]
   resource :user_session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :show, :edit, :update, :create]
 
