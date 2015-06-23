@@ -1,0 +1,13 @@
+<div class="categoriesContainer">
+  <h1><%= link_to @city.state.name, root_path %> >> <%= @city.name %> </h1>
+  <div><% @city.projects.each do |project| %>
+    <table>
+      <tr>
+        <td class="posted">Posted <%= project.created_at.month %>.<%= project.created_at.day %>.<%= project.created_at.year %></td>
+        <td class="title"><%= link_to project.title, project_path(project) %></td>
+        <td class="pay">$<%= project.pay %> <%= project.pay_type %>
+        <td class="category"><%= project.category.name %></td>
+      </tr>
+    </table>
+  <% end %></div>
+</div>

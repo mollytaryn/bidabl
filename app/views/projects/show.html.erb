@@ -6,7 +6,10 @@
     <h4>Posted on <%= @project.created_at.month %>.<%= @project.created_at.day %>.<%= @project.created_at.year %></h4>
   </div>
   <div class="profileRight">
-    <h3><%= link_to "Bidabl Projects", categories_path %> >> <%= link_to "#{@project.category.name}", category_path(@project.category.id) %></h3>
+    <h4><%= link_to "#{@project.city.state.name}", root_path %> >>
+        <%= link_to "#{@project.city.name}", city_path %> >>
+        <%= link_to "#{@project.category.name}", category_path(@project.category.id) %>
+    </h4>
     <br>
     <h5><%= @project.description %></h5>
   </div>

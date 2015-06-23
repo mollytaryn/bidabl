@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  resources :categories, only: [:index, :show]
-  resources :states, only: [:index, :show, :destroy]
+  resources :categories, only: [:index, :show, :destroy]
+  resources :states, only: [:index, :destroy]
   resources :cities, only: [:index, :show]
   resources :projects, only: [:new, :create, :show, :destroy]
   resource :user_session, only: [:new, :create, :destroy]

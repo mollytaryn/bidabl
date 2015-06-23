@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622223844) do
+ActiveRecord::Schema.define(version: 20150623005513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,13 @@ ActiveRecord::Schema.define(version: 20150622223844) do
     t.integer  "pay"
     t.integer  "category_id"
     t.string   "pay_type"
+    t.integer  "city_id"
+    t.integer  "state_id"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
+  add_index "projects", ["city_id"], name: "index_projects_on_city_id", using: :btree
+  add_index "projects", ["state_id"], name: "index_projects_on_state_id", using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "states", force: :cascade do |t|
@@ -72,5 +76,7 @@ ActiveRecord::Schema.define(version: 20150622223844) do
 
   add_foreign_key "cities", "states"
   add_foreign_key "projects", "categories"
+  add_foreign_key "projects", "cities"
+  add_foreign_key "projects", "states"
   add_foreign_key "projects", "users"
 end
