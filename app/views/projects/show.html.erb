@@ -21,6 +21,7 @@
     <h5><%= @project.description %></h5>
   </div>
   <div class="profileFarRight">
+    <h4>Responses: <span class="red"><%= @comments.length %></span></h4>
     <%= link_to "Bid on this Project", :anchor => 'bid_form' %>
   </div>
 </div>
@@ -29,19 +30,25 @@
   <div class = "profileHeaderFullWidth">
     <h2>Bids</h2>
   </div>
-  <ul><% @comments.each do |comment| %>
+  <% if @comments.length == 0 %>
     <div class="profileFullWidth">
-      <li>
-        <h5><%= comment.content %></h5>
-        <h4> Posted by <%= link_to comment.user.username, user_path(comment.user) %></h4>
-        <h4>Posted on <%= comment.created_at.month %>.<%= comment.created_at.day %>.<%= comment.created_at.year %></h4>
-        <% if comment.user == current_user %>
-          <%= link_to 'Edit' %>
-          <%= link_to 'Delete' %>
-        <% end %>
-      </li>
+      There are no bids on this project yet.
     </div>
-  <% end %></ul>
+  <% else %>
+    <ul><% @comments.each do |comment| %>
+      <div class="profileFullWidth">
+        <li>
+          <h5><%= comment.content %></h5>
+          <h4> Posted by <%= link_to comment.user.username, user_path(comment.user) %></h4>
+          <h4>Posted on <%= comment.created_at.month %>.<%= comment.created_at.day %>.<%= comment.created_at.year %></h4>
+          <% if comment.user == current_user %>
+            <%= link_to 'Edit' %> |
+            <%= link_to 'Delete' %>
+          <% end %>
+        </li>
+      </div>
+    <% end %></ul>
+  <% end %>
   <div class = "profileHeaderFullWidth">
     <h2><a id="bid_form">Submit a bid along with any comments/questions below:</a></h2>
   </div>

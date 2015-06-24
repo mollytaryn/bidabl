@@ -50,6 +50,10 @@
     color: #888b93;
   }
 
+  h4.float {
+    float: right;
+  }
+
   h5 {
     font-weight: 400;
   }
@@ -75,5 +79,9 @@
 
   #comment_content {
     width: 500px;
+  }
+
+  .red {
+    color: #ff7f7f;
   }
 }

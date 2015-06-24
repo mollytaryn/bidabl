@@ -54,6 +54,7 @@
     <ul><% @user.projects.each do |p| %>
       <div class="profileFullWidth">
         <li>
+          <h4 class="float">Responses: <span class="red"><%= p.comments.length %></span></h4>
           <h3><%= link_to p.title, project_path(p.id) %></h3>
           <h4>Posted on <%= p.created_at.month %>.<%= p.created_at.day %>.<%= p.created_at.year %></h4>
           <br>
