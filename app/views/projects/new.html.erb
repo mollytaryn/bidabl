@@ -2,13 +2,14 @@
   <div class="newProjectLeft">
     <h1> Setup your bidabl project below:</h1>
 
-    <%= simple_form_for @project do |f| %>
+    <%= simple_form_for @project, :html => {:multipart => true} do |f| %>
       <%= f.input :title %>
-      <%= f.input :description %>
+      <%= f.input :description, as: :text %>
       <%= f.input :category_id, collection: Category.all %>
       <%= f.input :city_id, collection: State.all, as: :grouped_select, group_method: :cities, label: 'Location' %>
       <%= f.input :pay %>
       <%= f.input :pay_type, collection: ["per hour", "per day", "total"], label: 'Pay Rate' %>
+      <%= f.file_field :image, label: "Upload an image" %>
       <%= f.button :submit, "Enter" %>
     <% end %>
   </div>

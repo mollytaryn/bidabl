@@ -1,5 +1,8 @@
 <div class="profileContainer">
   <div class="profileLeft">
+    <% if @project.image.blank? == false %>
+      <%= image_tag("#{@project.image_url.to_s}") %>
+    <% end %>
     <h1><%= @project.title %></h1>
     <% if @project.pay.blank? %>
       <h3>All Bids Welcome</h3>
