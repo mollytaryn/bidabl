@@ -9,7 +9,8 @@
       <%= f.input :city_id, collection: State.all, as: :grouped_select, group_method: :cities, label: 'Location' %>
       <%= f.input :pay %>
       <%= f.input :pay_type, collection: ["per hour", "per day", "total"], label: 'Pay Rate' %>
-      <%= f.file_field :image, label: "Upload an image" %>
+      <%= f.label "Upload an image" %>
+      <%= f.file_field :image %>
       <%= f.button :submit, "Enter" %>
     <% end %>
   </div>

@@ -1,14 +1,16 @@
 <h1>Edit Profile</h1>
 <%= button_to "Cancel"%>
 
-<%= simple_form_for @user, url: user_path, method: :patch do |f| %>
+<%= simple_form_for @user, url: user_path, :html => {:multipart => true}, method: :patch do |f| %>
   <%= f.input :name %>
   <%= f.input :username %>
-  <%= f.input :description %>
+  <%= f.input :description, :as => :text %>
   <%= f.input :email %>
   <%= f.input :website, :as => :url, label: 'Website' %>
   <%= f.input :linkedin, :as => :url, label: 'LinkedIn Profile' %>
   <%= f.input :pinterest, :as => :url, label: 'Pinterest Profile' %>
   <%= f.input :facebook_page, :as => :url, label: 'Facebook Page' %>
+  <%= f.label "Upload Profile Picture" %>
+  <%= f.file_field :image %>
   <%= f.button :submit, "Done" %>
 <% end %>

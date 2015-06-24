@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  attr_accessor :image
+  mount_uploader :image, ImageUploader
+
   has_many :projects
   has_many :comments
   has_many :images

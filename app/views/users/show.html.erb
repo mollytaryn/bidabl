@@ -1,6 +1,10 @@
 <div class="profileContainer">
   <div class="profileLeft">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"></img>
+    <%if @user.image.blank? %>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"></img>
+    <% else %>
+      <%= image_tag("#{@user.image}") %>
+    <% end %>
   </div>
   <div class="profileRight">
     <h1><%= @user.username %></h1>
