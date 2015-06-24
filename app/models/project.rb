@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
 
   has_many :comments
+  has_many :images
 
 
   validates :title, :description, :category_id, presence: true

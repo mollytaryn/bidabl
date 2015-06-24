@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :projects
   has_many :comments
+  has_many :images
 
   validates :email, :username, presence: true
   validates :name, length: { minimum: 2, allow_blank: true }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623215612) do
+ActiveRecord::Schema.define(version: 20150624011800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(version: 20150623215612) do
   add_index "comments", ["project_id"], name: "index_comments_on_project_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "images", force: :cascade do |t|
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
@@ -53,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150623215612) do
     t.string   "pay_type"
     t.integer  "city_id"
     t.integer  "state_id"
+    t.string   "image"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
@@ -81,6 +88,7 @@ ActiveRecord::Schema.define(version: 20150623215612) do
     t.string   "linkedin"
     t.string   "facebook_page"
     t.string   "pinterest"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
