@@ -2,7 +2,7 @@
   <div class="profileLeft">
     <h1><%= @project.title %></h1>
     <% if @project.pay.blank? %>
-      <h3>All bids welcome</h3>
+      <h3>All Bids Welcome</h3>
     <% else %>
       <h3>$ <%= @project.pay %> <%= @project.pay_type %></h3>
     <% end %>
@@ -11,7 +11,7 @@
   </div>
   <div class="profileRight">
     <h4><%= link_to "#{@project.city.state.name}", root_path %> >>
-        <%= link_to "#{@project.city.name}", city_path %> >>
+        <%= link_to "#{@project.city.name}", city_path(@project.city) %> >>
         <%= link_to "#{@project.category.name}", category_path(@project.category.id) %>
     </h4>
     <br>

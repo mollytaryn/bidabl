@@ -16,6 +16,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'sorcery'
 
+gem 'fog'
+gem 'carrierwave'
+
 gem 'bourbon'
 gem 'bitters'
 gem 'neat'
