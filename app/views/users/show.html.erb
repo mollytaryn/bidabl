@@ -60,7 +60,23 @@
           <br>
           <%= p.description %>
           <br>
-          <%= link_to "Delete", project_path(p.id), :method => :delete %>
+          <% if @user == current_user %>
+            <%= link_to "Delete", project_path(p.id), :method => :delete %>
+          <% end %>
+        </li>
+      </div>
+    <% end %></ul>
+  <% end %>
+  <% if @user.projects.length >= 1 %>
+    <div class="profileHeaderFullWidth">
+      <h2>My Project Bids</h2>
+    </div>
+    <ul><% @user.comments.each do | comment | %>
+      <div class="profileFullWidth">
+        <li>
+          <%= comment.project %>
+          <%= comment.content %>
+          <%= link_to "Delete", user_comment_path(@user, comment), :method => :delete %>
         </li>
       </div>
     <% end %></ul>

@@ -6,14 +6,17 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :projects, only: [:new, :create, :show, :destroy] do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create]
+  end
+
+  resources :users, only: [:new, :show, :edit, :update, :create] do
+    resources :comments, only: [:destroy]
   end
 
   resources :categories, only: [:index, :show, :destroy]
   resources :states, only: [:index, :destroy]
   resources :cities, only: [:index, :show]
   resource :user_session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :show, :edit, :update, :create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

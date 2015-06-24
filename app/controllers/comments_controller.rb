@@ -12,4 +12,11 @@ class CommentsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to user_path(@comment.user_id), notice: "Your comment has been deleted."
+  end
+
 end
