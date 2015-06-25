@@ -1,7 +1,24 @@
 <div class="categoriesContainer">
-  <h1>Need help with a project?</h2>
-  <h3>Post your project here and start getting bids today!</h3>
-  <button>Create New Project</button>
+  <div class="grayBox">
+    <h1>Need help with a project?</h2>
+    <h3>Post your project here and start getting bids today!</h3>
+    <% if current_user.present? %>
+      <div class="button"><%= link_to "Create a Bidabl Project", new_project_path %></div>
+    <% else %>
+      <div class="modal">
+        <label for="modal-2">
+          <div id="sign-in-form" class="modal-trigger blue">Create a Bidabl Project</div>
+        </label>
+        <input class="modal-state" id="modal-2" type="checkbox" />
+        <div class="modal-fade-screen">
+          <div class="modal-inner">
+            <div class="modal-close" for="modal-2"></div>
+            <div><%= render partial:'user_sessions/sign_in_form', locals: { user: User.new } %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div class="container">

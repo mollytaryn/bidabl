@@ -51,4 +51,25 @@
     width: 10%;
   }
 
+  .grayBox {
+    text-align: center;
+    background-color: #eeeeef;
+    border: 2px solid #dddee0;
+    border-radius: 8px;
+    margin: 30px;
+    padding: 30px;
+
+    .modal {
+      max-width: 300px;
+      margin: auto;
+    }
+    .blue {
+      margin-top: 30px;
+      padding: 10px;
+      border: 2px solid #477dca;
+      border-radius: 8px;
+      color: #477dca;
+    }
+  }
+
 }
