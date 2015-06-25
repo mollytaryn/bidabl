@@ -74,7 +74,13 @@
     <ul><% @user.comments.each do | comment | %>
       <div class="profileFullWidth">
         <li>
-          <h4 class="float">Status: <span class="red">Pending<span></h4>
+          <% if comment.project.accepted_bid_id.blank? %>
+            <h4 class="float">Status: Pending<span></h4>
+          <% elsif comment.project.accepted_bid_id == comment.id %>
+            <h4 class="float">Status: <span class="green">Accepted<span></h4>
+          <% else %>
+            <h4 class="float">Status: <span class="red">Rejected<span></h4>
+          <% end %>
           <h3><%= link_to "#{comment.project.title}", project_path(comment.project_id) %></h3>
           <h4>Project owner: <%= link_to "#{comment.project.user.username}", user_path(comment.project.user_id) %></h4>
           <h4>You bid on this project <%= time_ago_in_words(comment.created_at) %> ago</h4>
