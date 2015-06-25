@@ -2,11 +2,11 @@
   @include outer-container;
 
   .formRow1 {
-    @include span-columns(7);
+    @include span-columns(6);
   }
 
   .formRow2 {
-    @include span-columns(3);
+    @include span-columns(4);
   }
 
   .formRow3 {

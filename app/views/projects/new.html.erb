@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="newProjectLeft">
+<div class="formContainer">
+  <div class="formRow1">
     <h1> Setup your bidabl project below:</h1>
 
     <%= simple_form_for @project, :html => {:multipart => true} do |f| %>
@@ -15,8 +15,22 @@
     <% end %>
   </div>
 
-  <div class="newProjectRight">
+  <div class="formRow2">
     <h1>Tips:</h1>
-    <h3>Describe the project in as much detail as possible. Remember to include details such as project scope and timeline.</h3>
+    <div class="grayBox">
+      <h3><span class="blue">Titling your project:</span> Short. Descriptive. To the point. And please, nothing misleading! The clearer you are the easier the bidder of your dreams will find you.</h3>
+    </div>
+    <div class="grayBox">
+      <h3><span class="blue">Describing your project:</span> Use the project description field to give as much project detail as possible. Is there a project timeline? Is this a one-time project, or a short-term / long-term job? Are you looking for a specific kind of bidder? Hobbiest, student, professional? The more details you give the better bids you will get.</h3>
+    </div>
+    <div class="grayBox">
+      <h3><span class="blue">Pay:</span> Note that setting a price / pay rate is optional. If you don't specify how much you are willing to pay for this project, bidders will see a message that states "All bids welcome" allowing bidders to name the amount they are will to work for. If you don't know how much to offer, simply leave those fields blank.</h3>
+    </div>
+    <div class="grayBox">
+      <h3><span class="blue">Add an image:</span> Have a room that needs painting? A roof that needs repair? A yard that needs wrangling? As we all know, a picture can speak a thousand words. Upload an image if you think it would help you illustrate the scope of your project.</h3>
+    </div>
+  </div>
+  <div class="formRow3">
+    <%= link_to "Cancel Setup", root_path %>
   </div>
 </div>
