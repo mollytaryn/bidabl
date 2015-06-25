@@ -1,0 +1,31 @@
+.footerContainer {
+  @include outer-container(100%);
+  background-color: #2C3240;
+  height: 300px;
+
+  .darkgray {
+    background-color: #2C3240;
+    height: 80px;
+  }
+
+  .footerLeft {
+    @include span-columns(8);
+    // text-align: center;
+    margin: 20px;
+  }
+
+  .footerRight {
+    @include span-columns(3);
+    text-align: center;
+    margin: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+    color: white;
+  }
+
+  h2 {
+    color: white;
+  }
+}
