@@ -85,9 +85,9 @@
           <h4>Project owner: <%= link_to "#{comment.project.user.username}", user_path(comment.project.user_id) %></h4>
           <h4>You bid on this project <%= time_ago_in_words(comment.created_at) %> ago</h4>
           <br>
-          <%= comment.content %>
+          <div><h3>Your bid message:</h3><%= comment.content %></div>
           <br>
-          <%= link_to "Delete", user_comment_path(@user, comment), :method => :delete %>
+          <%= link_to "Delete this Bid", user_comment_path(@user, comment), :method => :delete %>
         </li>
       </div>
     <% end %></ul>

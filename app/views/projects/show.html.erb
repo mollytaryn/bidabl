@@ -42,16 +42,18 @@
     <ul><% @comments.each do |comment| %>
       <div class="profileFullWidth">
         <li>
-          <% if @project.accepted_bid_id.blank? %>
+          <% if @project.accepted_bid_id.blank? && @project.user == current_user %>
             <h4 class="float"><%= link_to 'Accept Bid', accepted_bid_project_path(@project, :project => { :accepted_bid_id => comment.id}), :method => :put, :confirm => "Are you sure you want to accept this bid?" %></h4>
+          <% elsif @project.accepted_bid_id.blank? && @project.user != current_user %>
+            <h4 class="float">This bid is pending.</h4>
           <% elsif @project.accepted_bid_id == comment.id %>
             <h4 class="float green">This bid has been accepted.</h4>
           <% else %>
             <h4 class="float red">This bid has been rejected.</h4>
           <% end %>
           <h5><%= comment.content %></h5>
-          <h4> Posted by <%= link_to comment.user.username, user_path(comment.user) %></h4>
-          <h4>Posted on <%= comment.created_at.month %>.<%= comment.created_at.day %>.<%= comment.created_at.year %></h4>
+          <h4> Bid submitted by <%= link_to comment.user.username, user_path(comment.user) %> <%= time_ago_in_words(comment.created_at) %> ago</h4>
+          </h4>
           <% if comment.user == current_user %>
             <%= link_to 'Edit' %> |
             <%= link_to 'Delete' %>
