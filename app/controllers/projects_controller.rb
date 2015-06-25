@@ -18,7 +18,6 @@ class ProjectsController < ApplicationController
   end
 
   # def edit
-  #   @project.accepted_bid_id = Project.comments.find(params[:id])
   #   if !current_user
   #     redirect_to root_path
   #   else

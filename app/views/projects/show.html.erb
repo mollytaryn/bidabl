@@ -21,8 +21,12 @@
     <h5><%= @project.description %></h5>
   </div>
   <div class="profileFarRight">
-    <h4>Responses: <span class="red"><%= @comments.length %></span></h4>
-    <%= link_to "Bid on this Project", :anchor => 'bid_form' %>
+    <% if @project.accepted_bid_id.blank? %>
+      <h4>Responses: <span class="red"><%= @comments.length %></span></h4>
+      <%= link_to "Bid on this Project", :anchor => 'bid_form' %>
+    <% else %>
+      <h4 class="red">This project is now closed to new bids.</h4>
+    <% end %>
   </div>
 </div>
 
@@ -38,27 +42,35 @@
     <ul><% @comments.each do |comment| %>
       <div class="profileFullWidth">
         <li>
+          <% if @project.accepted_bid_id.blank? %>
+            <h4 class="float"><%= link_to 'Accept Bid', accepted_bid_project_path(@project, :project => { :accepted_bid_id => comment.id}), :method => :put, :confirm => "Are you sure you want to accept this bid?" %></h4>
+          <% elsif @project.accepted_bid_id == comment.id %>
+            <h4 class="float green">This bid has been accepted.</h4>
+          <% else %>
+            <h4 class="float red">This bid has been rejected.</h4>
+          <% end %>
           <h5><%= comment.content %></h5>
           <h4> Posted by <%= link_to comment.user.username, user_path(comment.user) %></h4>
           <h4>Posted on <%= comment.created_at.month %>.<%= comment.created_at.day %>.<%= comment.created_at.year %></h4>
           <% if comment.user == current_user %>
             <%= link_to 'Edit' %> |
             <%= link_to 'Delete' %>
-             <%= link_to 'Accept Bid', accepted_bid_project_path(@project, :project => { :accepted_bid_id => comment.id}), :method => :put, :confirm => "Are you sure you want to accept this bid?" %>
           <% end %>
         </li>
       </div>
     <% end %></ul>
   <% end %>
-  <div class = "profileHeaderFullWidth">
-    <h2><a id="bid_form">Submit a bid along with any comments/questions below:</a></h2>
-  </div>
-  <div class="profileFullWidth">
-    <%= simple_form_for [@project, @comment] do |f| %>
-      <%= f.input :content, as: :text, label: 'Your bid' %>
-      <%= f.button :submit, "Submit Bid" %>
-    <% end %>
-  </div>
+  <%if @project.accepted_bid_id.blank? %>
+    <div class = "profileHeaderFullWidth">
+      <h2><a id="bid_form">Submit a bid along with any comments/questions below:</a></h2>
+    </div>
+    <div class="profileFullWidth">
+      <%= simple_form_for [@project, @comment] do |f| %>
+        <%= f.input :content, as: :text, label: 'Your bid' %>
+        <%= f.button :submit, "Submit Bid" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 
