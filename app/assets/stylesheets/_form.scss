@@ -1,0 +1,38 @@
+.formContainer {
+  @include outer-container;
+
+  .formRow1 {
+    @include span-columns(7);
+  }
+
+  .formRow2 {
+    @include span-columns(3);
+  }
+
+  .formRow3 {
+    @include span-columns(2);
+    text-align: right;
+  }
+
+  .grayBox {
+    background-color: #eeeeef;
+    border: 2px solid #dddee0;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+
+  .blue {
+    color: #477dca;
+    font-weight: 800;
+  }
+}

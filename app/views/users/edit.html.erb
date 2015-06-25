@@ -1,16 +1,30 @@
-<h1>Edit Profile</h1>
-<%= button_to "Cancel"%>
-
-<%= simple_form_for @user, url: user_path, :html => {:multipart => true}, method: :patch do |f| %>
-  <%= f.input :name %>
-  <%= f.input :username %>
-  <%= f.input :description, :as => :text %>
-  <%= f.input :email %>
-  <%= f.input :website, :as => :url, label: 'Website' %>
-  <%= f.input :linkedin, :as => :url, label: 'LinkedIn Profile' %>
-  <%= f.input :pinterest, :as => :url, label: 'Pinterest Profile' %>
-  <%= f.input :facebook_page, :as => :url, label: 'Facebook Page' %>
-  <%= f.label "Upload Profile Picture" %>
-  <%= f.file_field :image %>
-  <%= f.button :submit, "Done" %>
-<% end %>
+<div class="formContainer">
+  <div class="formRow1">
+    <h1>Edit Profile</h1>
+    <%= simple_form_for @user, url: user_path, :html => {:multipart => true}, method: :patch do |f| %>
+      <%= f.input :name %>
+      <%= f.input :username %>
+      <%= f.input :description, :as => :text %>
+      <%= f.input :email %>
+      <%= f.input :website, :as => :url, label: 'Website' %>
+      <%= f.input :linkedin, :as => :url, label: 'LinkedIn Profile' %>
+      <%= f.input :pinterest, :as => :url, label: 'Pinterest Profile' %>
+      <%= f.input :facebook_page, :as => :url, label: 'Facebook Page' %>
+      <%= f.label "Upload Profile Picture" %>
+      <%= f.file_field :image %>
+      <%= f.button :submit, "Done" %>
+    <% end %>
+  </div>
+  <div class="formRow2">
+    <h1>Tips</h1>
+    <div class="grayBox">
+      <h3><span class="blue">Planning to bid on projects?</span> We encourage you to include links to your LinkedIn profile and professional Facebook Page (if you've got it), and to gear your personal description toward your professional interests, past work experiences, and details of the kind of projects you have worked on or would like to work on. Good luck!</h3>
+    </div>
+    <div class="grayBox">
+      <h3><span class="blue">Planning to post a project?</span> We encourage you to use your profile description to tell your potential bidders whether you are an individual or business, generally where you are located, and your preferred form of communication. The more details you give, the more likely you will connect with the person you are looking for.</h3>
+    </div>
+  </div>
+  <div class="formRow3">
+    <%= link_to "Cancel Edit", user_path(@user) %>
+  </div>
+</div>
