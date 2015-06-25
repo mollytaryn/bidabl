@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624011800) do
+ActiveRecord::Schema.define(version: 20150624202052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,14 +52,15 @@ ActiveRecord::Schema.define(version: 20150624011800) do
     t.string   "title"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "pay"
     t.integer  "category_id"
     t.string   "pay_type"
     t.integer  "city_id"
     t.integer  "state_id"
     t.string   "image"
+    t.integer  "accepted_bid_id"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(version: 20150624011800) do
   add_foreign_key "comments", "users"
   add_foreign_key "projects", "categories"
   add_foreign_key "projects", "cities"
+  add_foreign_key "projects", "comments", column: "accepted_bid_id"
   add_foreign_key "projects", "states"
   add_foreign_key "projects", "users"
 end

@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  resources :projects, only: [:new, :create, :show, :destroy] do
+  resources :projects do
+    member do
+      put 'accepted_bid'
+    end
+  end
+
+  resources :projects, only: [:new, :create, :edit, :show, :destroy] do
     resources :comments, only: [:create]
   end
 

@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   def create
     @project = Project.find(params[:project_id])
-    @comment = Comment.new(params.require(:comment).permit(:content))
+    @comment = Comment.new(params.require(:comment).permit(:content, :accepted))
     @comment.project = @project
     @comment.user_id = current_user.id
     if @comment.save

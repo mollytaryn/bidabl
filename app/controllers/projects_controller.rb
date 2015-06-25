@@ -1,9 +1,5 @@
 class ProjectsController < ApplicationController
 
-  def new
-    @project = Project.new
-  end
-
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
@@ -19,6 +15,29 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.destroy
     redirect_to user_path(@project.user_id), notice: "Your project has been deleted."
+  end
+
+  # def edit
+  #   @project.accepted_bid_id = Project.comments.find(params[:id])
+  #   if !current_user
+  #     redirect_to root_path
+  #   else
+  #     @user = current_user
+  #   end
+  # end
+
+  def accepted_bid
+    @project = Project.find(params[:id])
+    if @project.update_column(:accepted_bid_id, params[:project][:accepted_bid_id])
+      redirect_to project_path(@project), notice: "You have accepted a bid for this project!"
+    else
+      flash.alert = "The bid failed to be accepted."
+      render :new
+    end
+  end
+
+  def new
+    @project = Project.new
   end
 
   def show
