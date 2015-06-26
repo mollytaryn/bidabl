@@ -8,7 +8,8 @@
   </div>
   <div class="profileRight">
     <h1><%= @user.username %></h1>
-    <h4><%= @user.name %> | Joined bidabl <%= @user.created_at.month %>.<%= @user.created_at.day %>.<%= @user.created_at.year %></h4>
+    <h4><%= @user.name %></h4>
+    <h4>Joined bidabl <%= @user.created_at.month %>.<%= @user.created_at.day %>.<%= @user.created_at.year %></h4>
     <h4><%= @user.email %></h4>
     <h4><%= @user.website %></h4>
     <ul class="social-ul">
@@ -68,7 +69,7 @@
     <% end %></ul>
   <% end %>
 
-  <% if @user == current_user %>
+  <% if @user == current_user && @user.comments.length >= 1 %>
     <div class="profileHeaderFullWidth">
       <h2>My Bids</h2>
     </div>
