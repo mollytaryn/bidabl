@@ -6,7 +6,7 @@
       <%= f.input :title %>
       <%= f.input :description, as: :text %>
       <%= f.input :category_id, collection: Category.all %>
-      <%= f.input :city_id, collection: State.all, as: :grouped_select, group_method: :cities, label: 'Location' %>
+      <%= f.input :city_id, collection: State.all, as: :grouped_select, group_method: :cities, required: true, label: 'Location' %>
       <%= f.input :pay %>
       <%= f.input :pay_type, collection: ["per hour", "per day", "total"], label: 'Pay Rate' %>
       <%= f.label "Upload an image" %>
