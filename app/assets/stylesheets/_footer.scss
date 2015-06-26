@@ -1,7 +1,7 @@
 .footerContainer {
   @include outer-container(100%);
-  background-color: #2C3240;
-  height: 300px;
+  background-color: #4d515b;
+  position: relative;
 
   .darkgray {
     background-color: #2C3240;
@@ -10,13 +10,15 @@
 
   .footerLeft {
     @include span-columns(8);
-    // text-align: center;
     margin: 20px;
   }
 
   .footerRight {
-    @include span-columns(3);
+    @include span-columns(4);
+    position: absolute;
     text-align: center;
+    bottom: 0;
+    right: 0;
     margin: 20px;
   }
 
@@ -27,5 +29,13 @@
 
   h2 {
     color: white;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .mission {
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 20px;
   }
 }
