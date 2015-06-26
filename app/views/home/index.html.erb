@@ -1,23 +1,31 @@
 <div class="categoriesContainer">
-  <div class="grayBox">
-    <h1>Need help with a project?</h2>
-    <h3>Post your project here and start getting bids today!</h3>
-    <% if current_user.present? %>
-      <div class="button"><%= link_to "Create a Bidabl Project", new_project_path, :class => 'blue'  %></div>
-    <% else %>
-      <div class="modal">
-        <label for="modal-2">
-          <div id="sign-in-form" class="modal-trigger blue">Create a Bidabl Project</div>
-        </label>
-        <input class="modal-state" id="modal-2" type="checkbox" />
-        <div class="modal-fade-screen">
-          <div class="modal-inner">
-            <div class="modal-close" for="modal-2"></div>
-            <div><%= render partial:'user_sessions/sign_in_form', locals: { user: User.new } %></div>
+  <div class="left">
+    <div class="grayBox">
+      <h1>How does bidabl work?</h1>
+      <h3>It's simple! Bidabl connects projects and people on a platform that encourages safety and transparency. If you need help with a home-improvement project, create an account, setup a project, and watch the bids come in! Or, if you're looking to put your home-improvement skills to work, start bidding on existing projects. Go on, give it a try.</h3>
+    </div>
+  </div>
+  <div class="right">
+    <div class="grayBox">
+      <h1>Need help with a project?</h1>
+      <h3>Post your project here and start getting bids today!</h3>
+      <% if current_user.present? %>
+        <div class="button"><%= link_to "Create a Bidabl Project", new_project_path, :class => 'blue'  %></div>
+      <% else %>
+        <div class="modal">
+          <label for="modal-2">
+            <div id="sign-in-form" class="modal-trigger blue">Create a Bidabl Project</div>
+          </label>
+          <input class="modal-state" id="modal-2" type="checkbox" />
+          <div class="modal-fade-screen">
+            <div class="modal-inner">
+              <div class="modal-close" for="modal-2"></div>
+              <div><%= render partial:'user_sessions/sign_in_form', locals: { user: User.new } %></div>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 

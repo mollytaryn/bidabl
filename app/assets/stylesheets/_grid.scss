@@ -1,24 +1,33 @@
-.container {
-  @include outer-container(96%);
+.homeContainer {
+  @include outer-container(100%);
+  background-color: #d6d6d7;
+  margin-bottom: 50px;
 
   .homeLeft {
-    @include span-columns(6 of 12);
+    @include span-columns(6);
+    margin: 20px 10px;
+    padding: 30px;
+    height: 500px;
     text-align: center;
-    height: 280px;
     padding: 100px 0;
     margin-bottom: 20px;
     background-color: white;
-    border-top: 2px solid #dddee0;
-    border-right: 2px solid #dddee0;
   }
-  .homeRight {
-    @include span-columns(6 of 12);
+  .homeMiddle {
+    @include span-columns(6);
+    margin: 20px 10px;
+    padding: 30px;
+    height: 500px;
     text-align: center;
     padding: 100px 0;
-    height: 280px;
     margin-bottom: 20px;
     background-color: white;
-    border-top: 2px solid #dddee0;
+  }
+
+  .homeRight {
+    @include span-columns(4);
+    margin: 50px 10px;
+
   }
 
   h2 {

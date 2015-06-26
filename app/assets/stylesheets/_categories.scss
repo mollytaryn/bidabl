@@ -2,6 +2,14 @@
   @include outer-container;
   text-align: center;
 
+  .left {
+    @include span-columns(6);
+  }
+
+  .right {
+    @include span-columns(6);
+  }
+
   .block {
     @include span-columns(3);
     @include omega(4n);
@@ -53,10 +61,10 @@
 
   .grayBox {
     text-align: center;
-    background-color: #eeeeef;
-    border: 2px solid #dddee0;
+    height: 320px;
+    border: 2px solid #477dca;
     border-radius: 8px;
-    margin: 40px;
+    margin: 80px 20px;
     padding: 40px;
 
     .modal {
