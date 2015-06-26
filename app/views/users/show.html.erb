@@ -67,7 +67,8 @@
       </div>
     <% end %></ul>
   <% end %>
-  <% if @user.projects.length >= 1 %>
+
+  <% if @user == current_user %>
     <div class="profileHeaderFullWidth">
       <h2>My Bids</h2>
     </div>
