@@ -21,9 +21,12 @@
     <h5><%= @project.description %></h5>
   </div>
   <div class="profileFarRight">
-    <% if @project.accepted_bid_id.blank? %>
+    <% if @project.accepted_bid_id.blank? && current_user.present? %>
       <h4>Responses: <span class="red"><%= @comments.length %></span></h4>
       <%= link_to "Bid on this Project", :anchor => 'bid_form' %>
+    <% elsif current_user.present? == false %>
+      <h4>Responses: <span class="red"><%= @comments.length %></span></h4>
+      <h4 class="red">You must be logged in to bid on this project.</h4>
     <% else %>
       <h4 class="red">This project is now closed to new bids.</h4>
     <% end %>
@@ -62,7 +65,7 @@
       </div>
     <% end %></ul>
   <% end %>
-  <%if @project.accepted_bid_id.blank? %>
+  <%if @project.accepted_bid_id.blank? && current_user.present? %>
     <div class = "profileHeaderFullWidth">
       <h2><a id="bid_form">Submit a bid along with any comments/questions below:</a></h2>
     </div>
